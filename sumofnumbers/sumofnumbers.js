@@ -25,15 +25,14 @@ function sumRecursion(arr) {
   if (arr.length === 0) {
     return 0;
   }
-  const val = arr[0];
-  arr.shift();
-  return val + sumRecursion(arr);
+
+  return arr[0] + sumRecursion(arr.slice(1, arr.length));
 }
 
 console.log(sumRecursion(test));
 
 function sumTheSimpleWay(arr) {
-  return _.reduce(arr, function(memo, num) { return memo + num; }, 0);
+  return _.reduce(arr, function (memo, num) { return memo + num; }, 0);
 }
 
 console.log(sumTheSimpleWay(test));
